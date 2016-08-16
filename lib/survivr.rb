@@ -20,6 +20,9 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
+  8.times do
+    
+  end
 end
 
 def phase_two

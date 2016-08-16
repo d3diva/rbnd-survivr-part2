@@ -18,9 +18,7 @@ class Game
   end
 
   def combine_members
-    all_members = []
-    @tribes.each { |tribe| all_members << tribe.members }
-    all_members.flatten!
+    @tribes.map(&:members).flatten! # @borneo.map { |e| e.values }.flatten!
   end
 
   def merge(combined_tribe)

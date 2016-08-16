@@ -2,11 +2,18 @@
 @coyopa = {name: "Pagong", members: @contestants.shift(10)}
 @hunapu = {name: "Tagi", members: @contestants.shift(10)}
 
-#puts @coyopa
-#puts @hunapu
+#puts a =  @coyopa[:members]
+#puts b = @hunapu[:members]
+#puts a&
+
 @borneo = []
 @borneo << @coyopa
 @borneo << @hunapu
 
+@tribes =[]
+puts @borneo.map { |e| e.values }.flatten!
+#puts @tribes
 
-puts @borneo.values
+#puts @borneo
+
+#a = @borneo.(&:members).flatten
