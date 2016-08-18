@@ -11,8 +11,9 @@ class Tribe
     @name
   end
 
-  def tribal_council(options)
-    @members.reject{|member| member == options[:immune]}.sample
+  def tribal_council(options={})
+    elemenated = @members.reject{|member| member == options[:immune]}.sample
+    return @members.delete(elemenated)
 	end
 
 end

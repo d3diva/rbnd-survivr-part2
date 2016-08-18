@@ -10,10 +10,37 @@
 @borneo << @coyopa
 @borneo << @hunapu
 
-@tribes =[]
-puts @borneo.map { |e| e.values }.flatten!
+#puts @borneo
+puts all = @borneo.map { |e| e.values }.flatten!
+puts "++++++++++++++++++#{all}"
+#
+#del = "carlos"
+#puts "-----------------------------------"
+#
+#
+#@borneo = @borneo.each { |e| e[:members].reject! { |w| w == del  }}
+#
+#puts " ----------- #{@borneo}"
+#del = "walter"
+##@borneo = @borneo.each { |e| e[:members].reject! { |w| w == del  }}
+#@borneo[:members].map { |e| puts "#{e}" }
+
+
+@members = @contestants
+
+puts "#{@contestants}"
+#@contestants.each { |e| puts "#{e}"  }
+all.reject{|member| member == "carlos"}.sample
+puts "++++++++++++++++++#{all}"
+#puts @members
+
+#puts " ----------- #{@borneo}"
+#puts @borneo
+#puts @borneos.map { |e| e.values }.flatten!
+
+
+#@tribes =[]
 #puts @tribes
 
-#puts @borneo
 
 #a = @borneo.(&:members).flatten

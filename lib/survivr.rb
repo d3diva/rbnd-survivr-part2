@@ -21,15 +21,34 @@ require_relative "jury"
 #This is where you will write your code for the three phases
 def phase_one
   8.times do
-    
+    losing_tribe =  @borneo.immunity_challenge
+    puts "Losing tribe --------------------- #{losing_tribe}"
+    voted_out_member = losing_tribe.tribal_council
+    puts "#Voted out --------------------------- #{voted_out_member}"
   end
 end
 
+def member_immunity
+  immune_member = @borneo.individual_immunity_challenge
+  puts "#{immune_member} is immune"
+  voted_out_member = @merge_tribe.tribal_council(immune: immune_member)
+end
+
 def phase_two
+  3.times do
+    puts "#{member_immunity} has been voted out &&&&&&&&&&&&&&&&&&"
+  end
 end
 
 def phase_three
+  7.times do
+    @jury.add_member(member_immunity)
+    puts "#{member_immunity} has been added to jury+++++++++++++++++++="
+  end
 end
+
+
+
 
 
 # If all the tests pass, the code below should run the entire simulation!!
