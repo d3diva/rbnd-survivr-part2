@@ -17,17 +17,15 @@ class Jury
 		     @finalists[vote] += 1
 		     puts "#{member.to_s.capitalize} voted for #{vote.to_s.capitalize}."
 	  end
-	  return @finalists
+    return @finalists
   end
 
   def report_votes(final_votes)
-    final_votes.each { |e, v|  puts "#{final_votes[e].to_s} received {final_votes[v] votes."}
+    final_votes.each { |e, v|  puts "#{e.to_s} received #{v} votes."}
   end
 
   def announce_winner(final_votes)
-    final_votes.max_by{|k, v| v}[0] # 0 -> key, 1 -> value
+    puts "the winner is #{final_votes.max_by{|k, v| v}[0]}" # 0 -> key, 1 -> value
   end
-
-
 
 end
