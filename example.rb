@@ -11,8 +11,8 @@
 @borneo << @hunapu
 
 #puts @borneo
-puts all = @borneo.map { |e| e.values }.flatten!
-puts "++++++++++++++++++#{all}"
+#puts all = @borneo.map { |e| e.values }.flatten!
+#puts "++++++++++++++++++#{all}"
 #
 #del = "carlos"
 #puts "-----------------------------------"
@@ -26,12 +26,12 @@ puts "++++++++++++++++++#{all}"
 #@borneo[:members].map { |e| puts "#{e}" }
 
 
-@members = @contestants
-
-puts "#{@contestants}"
-#@contestants.each { |e| puts "#{e}"  }
-all.reject{|member| member == "carlos"}.sample
-puts "++++++++++++++++++#{all}"
+#@members = @contestants
+#
+#puts "#{@contestants}"
+##@contestants.each { |e| puts "#{e}"  }
+#all.reject{|member| member == "carlos"}.sample
+#puts "++++++++++++++++++#{all}"
 #puts @members
 
 #puts " ----------- #{@borneo}"
@@ -42,5 +42,6 @@ puts "++++++++++++++++++#{all}"
 #@tribes =[]
 #puts @tribes
 
-
+b = @borneo
 #a = @borneo.(&:members).flatten
+puts "hi" if b[0].values.include? "Tagi"
