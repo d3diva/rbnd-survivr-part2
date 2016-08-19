@@ -2,7 +2,7 @@ module Results
 
   def display_phase_title(title)
     puts
-    puts @a.asciify(title).blue.on_red
+    puts @a.asciify(title).blue.on_yellow
     puts
   end
 
@@ -39,6 +39,12 @@ module Results
     puts ""
   end
 
+  def display_final_phase
+    puts @a.asciify("Final Phase").blue.on_red
+
+  end
+
+  #color for the finalists
   def finalists_color(finalists, finalist_name)
     finalists.keys[0] == finalist_name ? "#{finalist_name.to_s.upcase}".green : "#{finalist_name.to_s.upcase}".red
   end

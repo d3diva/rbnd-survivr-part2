@@ -24,6 +24,7 @@ include Results
 
 @a = Artii::Base.new :font => 'small'
 
+# rounds count
 def round
   @round = 1
 end
@@ -74,12 +75,13 @@ def phase_three
     @round += 1
   end
   display_phase_footer("phase three".upcase)
+  display_final_phase
 end
 
 
 
 
-
+#note - added display_winner to the last line
 # If all the tests pass, the code below should run the entire simulation!!
 #=========================================================
  phase_one #8 eliminations
