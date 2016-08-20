@@ -22,17 +22,23 @@ include Results
  @borneo = Game.new(@coyopa, @hunapu)
 #=========================================================
 
-@a = Artii::Base.new :font => 'small'
+@a = Artii::Base.new
 
 # rounds count
 def round
   @round = 1
 end
 
+def footer(phase)
+  display_phase_footer(phase)
+  display_will_go_to_phase if phase == "PHASE ONE"
+  display_final_phase(Artii::Base.new.asciify("FINAL PHASE")) if phase == "PHASE THREE"
+end
+
 
 #This is where you will write your code for the three phases
 def phase_one
-  display_phase_title("phase one".upcase)
+  display_phase_title(Artii::Base.new.asciify("PHASE ONE"))
   round
   8.times do
     display_round_number(@round)
@@ -41,9 +47,8 @@ def phase_one
     voted_out_member = losing_tribe.tribal_council
     display_voted_out_member(voted_out_member)
     @round += 1
+    footer("PHASE ONE") if @round > 8
   end
-  display_phase_footer("phase one".upcase)
-  display_will_go_to_phase
 end
 
 def member_immunity
@@ -54,28 +59,27 @@ end
 
 def phase_two
   round
-  display_phase_title("phase two".upcase)
+  display_phase_title(Artii::Base.new.asciify("PHASE TWO"))
   3.times do
     display_round_number(@round)
     voted_out_member = member_immunity
     display_voted_out_member(voted_out_member)
     @round += 1
+    footer("PHASE TWO") if @round > 3
   end
-  display_phase_footer("phase two".upcase)
 end
 
 def phase_three
   round
-  display_phase_title("phase three".upcase)
+  display_phase_title(Artii::Base.new.asciify("PHASE THREE"))
   7.times do
     display_round_number(@round)
     add_to_jury = member_immunity
     @jury.add_member(add_to_jury)
     display_added_to_jury(add_to_jury)
     @round += 1
+    footer("PHASE THREE") if @round > 7
   end
-  display_phase_footer("phase three".upcase)
-  display_final_phase
 end
 
 
@@ -92,4 +96,4 @@ end
  finalists = @merge_tribe.members #set finalists
  vote_results = @jury.cast_votes(finalists) #Jury members report votes
  @jury.report_votes(vote_results) #Jury announces their votes
- display_winner(@jury.announce_winner(vote_results)) #Jury announces final winner
+ display_winner(@a.asciify(@jury.announce_winner(vote_results).to_s.upcase)) #Jury announces final winner
